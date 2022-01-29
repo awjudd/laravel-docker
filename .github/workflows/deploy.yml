@@ -75,7 +75,13 @@ jobs:
       - name: Download task definition
         run: |
           aws ecs describe-task-definition --task-definition ${{ secrets.ECS_CONTAINER_DEFINITION }} \
-          --query taskDefinition > task-definition.json    
+          --query taskDefinition > task-definition.json 
+          cat task-definition.json
+
+      - name: Emit the contents
+        run: |
+          aws ecs describe-task-definition --task-definition ${{ secrets.ECS_CONTAINER_DEFINITION }} \
+          --query taskDefinition > task-definition.json   
 
       - name: Fill in the new app image ID in the Amazon ECS task definition
         id: app-task-def
