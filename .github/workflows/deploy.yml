@@ -91,5 +91,5 @@ jobs:
         with:
           task-definition: ${{ steps.web-task-def.outputs.task-definition }}
           service: testserviceelb
-          cluster: testelb
+          cluster: laravel-cluster
           wait-for-service-stability: true
