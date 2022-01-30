@@ -90,6 +90,6 @@ jobs:
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.web-task-def.outputs.task-definition }}
-          service: testserviceelb
+          service: laravel-0ea
           cluster: laravel-cluster
           wait-for-service-stability: true
