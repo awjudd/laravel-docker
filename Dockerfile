@@ -22,8 +22,8 @@ RUN docker-php-ext-install gd
 
 
 RUN apk add autoconf && pecl install -o -f redis \
-&& rm -rf /tmp/pear \
-&& docker-php-ext-enable redis && apk del autoconf
+    && rm -rf /tmp/pear \
+    && docker-php-ext-enable redis && apk del autoconf
 
 COPY ./config/php/local.ini /usr/local/etc/php/conf.d/local.ini
 
@@ -36,10 +36,10 @@ COPY . /var/www
 # Copy existing application directory permissions
 COPY --chown=www:www . /var/www
 
- RUN chown -R www:www /var/www/storage
- RUN chmod -R 777 /var/www/storage
- RUN chmod -R 777 storage bootstrap/cache
- RUN chmod -R 777 ./
+RUN chown -R www:www /var/www/storage
+RUN chmod -R 777 /var/www/storage
+RUN chmod -R 777 storage bootstrap/cache
+RUN chmod -R 777 ./
 
 # Change current user to www
 USER www
