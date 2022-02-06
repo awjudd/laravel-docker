@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function () {
+    for($x = 0; $x < mt_rand(0, 1000000000); $x++);
     return 'Docker is working fine';
 });
 
